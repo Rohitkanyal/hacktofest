@@ -1,0 +1,28 @@
+import java.util.*;
+
+class Main{
+    
+        public static int Numberof(int n, int current){
+            
+            if(current==n){
+            
+            return 1;
+        }
+        if(current > n){
+            
+            return 0;
+        }
+      return  Numberof(n,current+1) + Numberof(n,current+3)+ Numberof(n,current+5);
+        }
+    
+    public static void main(String [] args){
+        
+        Scanner sc= new Scanner (System.in);
+        int n=sc.nextInt();
+        
+    
+        
+        
+        System.out.println(Numberof(n,0));
+    }
+}
