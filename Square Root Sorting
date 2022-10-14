@@ -1,0 +1,74 @@
+//Enter code here
+import java.util.*;
+import java.io.*;
+class Main{
+ static void find(int n, int arr []){
+     for(int i =0;i<n;i++){
+        for(int j=0;j<n-i-1;j++){
+            int a = (int)Math.sqrt(Math.abs(arr[j]));
+            int b = (int)Math.sqrt(Math.abs(arr[j+1]));
+            
+            if(Math.sqrt(Math.abs(arr[j]))>Math.sqrt(Math.abs(arr[j+1]))){
+                swap(arr,j,j+1);
+            }
+            if(a==b&& arr[j]>arr[j+1]){
+                swap(arr,j,j+1);
+            }
+            // System.out.println(a+" "+b);
+        }
+     }
+ }
+ static void swap(int [] arr, int j,int  i){
+    int temp = arr[j];
+    arr[j] = arr[i];
+    arr[i] = temp;
+ }
+ public static void main(String [] args){
+    FastReader input = new FastReader();
+    int tc = input.nextInt();
+    for(int j =0;j<tc;j++){
+        int n = input.nextInt();
+        int arr [] = new int [n];
+        for(int i =0;i<n;i++){
+            arr[i] = input.nextInt();
+            
+        }
+        find(n,arr);
+        for(int i: arr){
+            System.out.print(i+" ");
+        }
+         System.out.println();
+       
+    }
+    }
+  
+    static class FastReader
+  {
+    BufferedReader br;
+    StringTokenizer st;
+    public FastReader()
+    {
+      br = new BufferedReader(new InputStreamReader(System.in));
+    }
+    String next()
+    {
+      while (st == null || !st.hasMoreElements()){
+        try { st = new StringTokenizer(br.readLine()); }
+        catch (IOException e) { e.printStackTrace(); }
+      }
+      return st.nextToken();
+    }
+    int nextInt() { return Integer.parseInt(next()); }
+    long nextLong() { return Long.parseLong(next()); }
+    double nextDouble(){ return Double.parseDouble(next()); }
+    String nextLine(){
+      String str = "";
+      try { str = br.readLine(); }
+      catch (IOException e) { e.printStackTrace(); }
+      return str;
+    }
+  }
+
+   
+  
+}
