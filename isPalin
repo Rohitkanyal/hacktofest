@@ -1,0 +1,20 @@
+static boolean isPalin( Node left){
+   boolean check = true ;
+   Node right = left ;
+
+   while(right.next != null){
+      right = right.next ;
+   }
+
+   while( left != right){
+      if(left.data != right.data){
+         check = false ;
+         break ;
+      }
+
+      left = left.next ;
+      right = right.prev ;
+   }
+
+   return check ;
+}
